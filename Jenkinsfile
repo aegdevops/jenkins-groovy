@@ -5,7 +5,9 @@ pipeline{
             steps{
                 script {
                   def ecs_services = sh(returnStdout: true, script: 'ls artifacts/ecs')
-                  echo $ecs_services
+                  ecs_services.tokenize().each { service ->
+                    sh "echo ${service}"
+                  }
                 }
             }
         }
