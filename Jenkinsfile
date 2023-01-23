@@ -6,7 +6,8 @@ pipeline{
                 script {
                   def ecs_services = sh(returnStdout: true, script: 'ls artifacts/ecs')
                   ecs_services.tokenize().each { service ->
-                    dir ("artifacts/ecs/${service}") {
+                    def dirPath = "artifacts/ecs/${service}"
+                    dir (dirPath) {
                       sh "cat Dockerfile"
                     }
                   }
