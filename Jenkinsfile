@@ -8,6 +8,7 @@ pipeline{
                   ecs_services.tokenize().each { service ->
                     dir ("artifacts/ecs/${service}"){
                       sh "pwd"
+                      sh "cat Dockerfile"
                     }
                   }
                 }
