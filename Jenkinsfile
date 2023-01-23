@@ -3,6 +3,7 @@ pipeline{
     stages{
         stage("Build ECS Docker images"){
             steps{
+                cleanWs()
                 script {
                   def ecs_services = sh(returnStdout: true, script: 'ls artifacts/ecs').trim()
                   ecs_services.tokenize().each { service ->
