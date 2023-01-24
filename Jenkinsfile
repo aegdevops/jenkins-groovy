@@ -3,6 +3,7 @@ pipeline{
     stages{
         stage("Build ECS Docker images"){
             when {
+              branch "refs/heads/main"
               changeset "artifacts/ecs/**/*"
             }
             steps{
