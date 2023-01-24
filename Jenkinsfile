@@ -3,8 +3,10 @@ pipeline{
     stages{
         stage("Build ECS Docker images"){
             when {
-              branch "main"
-              changeset "artifacts/ecs/**/*"
+              allOf {
+                branch "main"
+                changeset "artifacts/ecs/**/*"
+              }
             }
             steps{
                 script {
