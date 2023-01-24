@@ -1,3 +1,3 @@
 FROM node:latest
 
-LABEL maintainer="aegdevops"
+LABEL maintainer="aegdevops++"
