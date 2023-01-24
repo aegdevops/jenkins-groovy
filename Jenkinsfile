@@ -1,7 +1,7 @@
 pipeline{
     agent any
     stages{
-        stage("Build ECS Docker images"){
+        stage("Build ECS Docker Images"){
             when {
               // branch "refs/heads/main"
               changeset "artifacts/ecs/**/*"
