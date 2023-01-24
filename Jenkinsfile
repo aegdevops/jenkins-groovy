@@ -3,7 +3,7 @@ pipeline{
     stages{
         stage("Build ECS Docker Images"){
             when {
-              // branch "refs/heads/main"
+              expression { GIT_BRANCH == "origin/main"}
               changeset "artifacts/ecs/**/*"
             }
             steps{
