@@ -2,9 +2,11 @@ pipeline{
     agent any
     stages{
         stage("Build ECS Docker images"){
+            when {
+              branch "main"
+              changeset "artifacts/ecs/**/*"
+            }
             steps{
-                cleanWs()
-                checkout scm
                 script {
                   def ecs_services = sh(returnStdout: true, script: 'ls artifacts/ecs').trim()
                   ecs_services.tokenize().each { service ->
